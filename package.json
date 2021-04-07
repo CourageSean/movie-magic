@@ -1,0 +1,19 @@
+{
+  "name": "movie-magic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "brew": "0.0.8",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node script.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
