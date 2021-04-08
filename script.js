@@ -37,7 +37,8 @@ return detailData
 getData("")
 .then((data)=>{
   app.get("/",(req,res)=>{
-    res.render("pages/index",{data})
+    let page_nr = 12
+    res.render("pages/index",{data,page_nr})
     
       })
   
@@ -56,9 +57,10 @@ getData("")
 
 
  app.get("/action",(req,res)=>{
+  let page_nr = req.params.nr
     getData("28")
     .then((data)=>{
-      res.render("pages/index",{data})
+      res.render("pages/index",{data,page_nr})
  
   })
 
@@ -66,9 +68,10 @@ getData("")
 
 
   app.get("/drama",(req,res)=>{
+    let page_nr = req.params.nr
     getData("18")
     .then((data)=>{
-      res.render("pages/index",{data})
+      res.render("pages/index",{data,page_nr})
      
         
     }) 
@@ -76,11 +79,11 @@ getData("")
 
 
   app.get("/movies/page/:nr",(req,res)=>{
-    let page_nr = String(req.params.nr) 
+    let page_nr = req.params.nr
     console.log(page_nr)
 getData("",page_nr)
 .then((data)=>{
 
-  res.render("pages/index",{data})
+  res.render("pages/index",{data,page_nr})
 })
   })

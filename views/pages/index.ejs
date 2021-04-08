@@ -15,6 +15,24 @@
 
     <a href="/action"> <button>Action</button> </a>
     <a href="/drama"> <button>Drama</button> </a>
+
+<% let myMovie =page_nr%>
+
+    <div id=“buttons”>
+        <% if(myMovie>=5) {%>
+            <% for( let i = myMovie-4; i < myMovie+5; i++ ) { %>
+                
+                    <button><a href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
+               
+           
+            <% } %>
+            <% } %>
+            <% if(myMovie<5) {%>
+            <% for( let i = 1; i < 10; i++ ) { %>
+            <button><a href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
+            <% } %>
+            <% } %>
+      </div>
   <section>
 
     
@@ -38,7 +56,9 @@
 </section>
 
 
+<script src="">
 
+</script>
 
 </body>
 </html>
