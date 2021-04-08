@@ -1,0 +1,21 @@
+body{
+ 
+    background: blue;
+}
+
+.img-wrapper{
+    width: 200px;
+}
+
+img{
+    width: 100%;
+}
+
+.grid-item{
+    width: 400px;
+}
+section{
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr 1fr ;
+}

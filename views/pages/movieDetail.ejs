@@ -7,6 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+
+    
+    <h1>Detail</h1>
+
+    <h1><%=detailData.original_title %>  </h1>
+
+    <% detailData.genres.forEach(element => { %>
+        <button><%=element.name %>  </button>
+    <% }) %>
+    
+   
+    
+
+
+
 </body>
 </html>
