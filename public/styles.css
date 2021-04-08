@@ -1,10 +1,35 @@
-body{
- 
-    background: blue;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
 }
+body{
+   
+}
+nav{
+    display: flex;
+    background: #010511;
+    padding-top: 50px;
+    justify-content: space-between;
+}
+.search-nav{
+    display: flex;
+    list-style: none;
+    color: #fff;
+    position: relative;
+    font-family: "Roboto";
+    padding:0 8%;
+    
+    }
+
+    .nav-item{
+        padding:0 13px;
+        font-weight: 500;
+    }
 
 .img-wrapper{
-    width: 200px;
+    width: 100%;
 }
 
 img{
@@ -12,10 +37,91 @@ img{
 }
 
 .grid-item{
-    width: 400px;
+    width: auto;
+}
+
+.genre-div{
+    background: #010511
+}
+.small-genre{
+display: flex;
+list-style: none;
+margin: auto;
+width: 25%;
+justify-content: space-between;
+
+}
+
+.genre-btn{
+width: 80px;
+color: rgba(255, 255, 255, 0.849);
+text-decoration: none;
+}
+
+.genre-btn a{
+    font-family: "Roboto";
+    color: rgba(255, 255, 255, 0.849);
+}
+
+.genre-btn a:hover{
+    border-bottom: 3px #eb1549 solid;
+    padding-bottom: 2px;
+}
+a{
+    text-decoration: none;
+    /* color: #fff; */
+}
+
+ul{
+    
 }
 section{
     display: grid;
-    
-    grid-template-columns: 1fr 1fr 1fr ;
+    gap:15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    background:#010511 ;
+    padding: 0 85px;
+    padding-top: 100px;
 }
+
+
+/* ============ */
+#kutu{
+    width:30px;
+    height:18px;
+      background-image:url("./lupe.png");
+    /* background-image:url("https://cdn0.iconfinder.com/data/icons/30-hardware-line-icons/64/Search-128.png"); */
+    background-size:30px;
+    background-repeat:no-repeat;
+    outline: none;
+    font-size:19px;
+    padding:5px;
+    padding-left:20px;
+    padding-right:20px;
+   border: none;
+   position: fixed;
+   background-color: transparent;
+   top: 12%;
+   right: 10%;
+
+    cursor:pointer;
+    border-radius:50px;
+    margin-left:50%;
+    
+    transition-property:width, padding, box-shadow, cursor, margin, background-color;
+    transition-duration:0.4s;
+  }
+  #kutu:focus{
+    padding-left:0px;
+    padding-right:10px;
+    width:180px;
+    cursor:text;
+    outline: none;
+    margin-left:-55%;
+    background-color: #fff ;
+  }
+
+  #buttons{
+      width: 300px;
+      color: black;
+  }
