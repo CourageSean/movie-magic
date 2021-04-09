@@ -77,6 +77,16 @@ getData("")
     }) 
   })
 
+  app.get("/movies/horror/:nr",(req,res)=>{
+    let page_nr = req.params.nr
+    getData("27",page_nr)
+    .then((data)=>{
+      res.render("pages/index",{data,page_nr})
+     
+        
+    }) 
+  })
+
 
   app.get("/movies/page/:nr",(req,res)=>{
     let page_nr = req.params.nr

@@ -4,6 +4,8 @@
   "description": "",
   "main": "script.js",
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "@splidejs/splide": "^2.4.21",
     "body-parser": "^1.19.0",
     "brew": "0.0.8",
     "dotenv": "^8.2.0",

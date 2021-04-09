@@ -78,9 +78,9 @@ ul{
 section{
     display: grid;
     gap:15px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr  ;
     background:#010511 ;
-    padding: 0 85px;
+    padding: 0 120px;
     padding-top: 100px;
 }
 
@@ -121,7 +121,13 @@ section{
     background-color: #fff ;
   }
 
-  #buttons{
-      width: 300px;
+  #buttons1{
+      width: 500px;
       color: black;
+      margin: auto;
+      padding-left: 100px;
   }
+
+  /*===================*/
+
+  

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     
 
 </head>
@@ -17,18 +18,22 @@
 
 <ul class="search-nav">
     <li class="nav-item">All Genres</li>
-    <li  class="nav-item">Watchlist</li>
+    <li  class="nav-item" id="watchlist">Watchlist</li>
     <li>
         <input type="text" id="kutu">
     </li>
 </ul>
 
     </nav>
+
+
+
+
     
 <div class="genre-div">
     <ul class="small-genre">
 <li class="genre-btn"> <a href="/action">Action</a> </li>
-<li class="genre-btn"><a  href="">Horror</a></li>
+<li class="genre-btn"><a  href="/movies/horror/1">Horror</a></li>
 <li class="genre-btn"><a  href="/movies/drama/1">Drama</a></li>
 <li class="genre-btn"><a  href="">Sci-fi</a></li>
 
@@ -62,17 +67,24 @@
 <a href=<%=`/movies/page/1`%>><button>1</button></a> <a href="/movies/page/2"><button>2</button></a> 
 
 
-    <a href="/action"> <button>Action</button> </a>
-    <a href="/drama"> <button>Drama</button> </a>
+    <!-- <a href="/action"> <button>Action</button> </a>
+    <a href="/drama"> <button>Drama</button> </a> -->
 
 <% let myMovie = parseInt(page_nr,10)%>
-
-    <div id=“buttons”>
+<% let col ="" %> 
+<% let pad ="" %> 
+    <div id=“buttons1”>
         <a href=<%=`/movies/page/${myMovie-1}`%>>prev </a>
         <% if(myMovie>=5) {%>
             <% for( let i = myMovie-4; i < myMovie+5; i++ ) { %>
-                
-                    <button><a href=<%= `/movies/page/${i}`%> ><%= `${i}` %></a></button>
+                <% if (myMovie === i) { %>
+                 <% col="red" %> 
+                 <% pad ="40px" %> 
+                <% }else{ %>
+                          <% col ="black" %> 
+                          <% pad ="15px" %> 
+                    <% } %> 
+                    <button><a style=<%=`color:${col};padding:${pad}`%> href=<%= `/movies/page/${i}`%> ><%= `${i}` %></a></button>
                
            
             <% } %>
@@ -82,23 +94,13 @@
             <button><a href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
             <% } %>
             <% } %>
+            <a href=<%=`/movies/page/${myMovie+1}`%>>next </a>
       </div>
 
       
-      <div class="pagination pagination-style-one m-t-20">
-        <a href="#">«</a>
-        <a href="#">‹</a>
-        <a href="#" class="selected">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">›</a>
-        <a href="#">»</a>
     </div>
 
-<script src="">
+<script src="../../functions.js">
 
 </script>
 
