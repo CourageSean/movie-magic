@@ -32,7 +32,7 @@
     
 <div class="genre-div">
     <ul class="small-genre">
-<li class="genre-btn"> <a href="/action">Action</a> </li>
+<li class="genre-btn"> <a href="/movies/action/1">Action</a> </li>
 <li class="genre-btn"><a  href="/movies/horror/1">Horror</a></li>
 <li class="genre-btn"><a  href="/movies/drama/1">Drama</a></li>
 <li class="genre-btn"><a  href="">Sci-fi</a></li>
@@ -64,17 +64,16 @@
 </section>
 
 
-<a href=<%=`/movies/page/1`%>><button>1</button></a> <a href="/movies/page/2"><button>2</button></a> 
-
-
+<article>
+    
     <!-- <a href="/action"> <button>Action</button> </a>
     <a href="/drama"> <button>Drama</button> </a> -->
 
 <% let myMovie = parseInt(page_nr,10)%>
 <% let col ="" %> 
 <% let pad ="" %> 
-    <div id=“buttons1”>
-        <a href=<%=`/movies/page/${myMovie-1}`%>>prev </a>
+    <div id=“buttons1” style="width:50%;margin:auto;background-color: ;padding:20px 0px;position:fixed;bottom: 0;left:35%">
+        <a class="prev-next" href=<%=`/movies/page/${myMovie-1}`%>>prev </a>
         <% if(myMovie>=5) {%>
             <% for( let i = myMovie-4; i < myMovie+5; i++ ) { %>
                 <% if (myMovie === i) { %>
@@ -84,21 +83,32 @@
                           <% col ="black" %> 
                           <% pad ="15px" %> 
                     <% } %> 
-                    <button><a style=<%=`color:${col};padding:${pad}`%> href=<%= `/movies/page/${i}`%> ><%= `${i}` %></a></button>
+                    <button class="pagination-btn"><a style=<%=`color:${col};padding:${pad}`%> href=<%= `/movies/page/${i}`%> ><%= `${i}` %></a></button>
                
            
             <% } %>
             <% } %>
             <% if(myMovie<5) {%>
             <% for( let i = 1; i < 10; i++ ) { %>
-            <button><a href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
+
+                <% if (myMovie === i) { %>
+                    <% col="red" %> 
+                    <% pad ="40px" %> 
+                   <% }else{ %>
+                             <% col ="black" %> 
+                             <% pad ="15px" %> 
+                       <% } %> 
+            <button><a  style=<%=`color:${col};padding:${pad}`%>  href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
             <% } %>
             <% } %>
-            <a href=<%=`/movies/page/${myMovie+1}`%>>next </a>
+            <a class="prev-next" href=<%=`/movies/page/${myMovie+1}`%>>next </a>
       </div>
 
       
     </div>
+</article>
+
+
 
 <script src="../../functions.js">
 

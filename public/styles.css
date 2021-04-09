@@ -84,6 +84,19 @@ section{
     padding-top: 100px;
 }
 
+article{
+    background:#010511 ;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.prev-next{
+padding:10px;
+border: solid 2px;
+color: #fff;
+}
+.pagination-btn{
+  
 
 /* ============ */
 #kutu{

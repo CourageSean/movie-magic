@@ -9,7 +9,7 @@ const genres = require("./data/genre.json")
 const app = express()
 app.set("view engine","ejs")
 
-app.listen(3001,()=>{
+app.listen(process.env.Port || 5000,()=>{
     console.log("listening")
 } )
 
@@ -56,7 +56,7 @@ getData("")
   })
 
 
- app.get("/action",(req,res)=>{
+ app.get("/movies/action/:nr",(req,res)=>{
   let page_nr = req.params.nr
     getData("28",page_nr)
     .then((data)=>{
@@ -82,15 +82,14 @@ getData("")
     getData("27",page_nr)
     .then((data)=>{
       res.render("pages/index",{data,page_nr})
-     
-        
+          
     }) 
   })
 
 
   app.get("/movies/page/:nr",(req,res)=>{
     let page_nr = req.params.nr
-    console.log(page_nr)
+   
 getData("",page_nr)
 .then((data)=>{
   console.log(typeof page_nr)
