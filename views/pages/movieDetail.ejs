@@ -5,18 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="detail-body">
+    <%- include("../partials/navBar.ejs")  %> 
 
-    
-    <h1>Detail</h1>
+    <section class="detail-wrapper">
+        <div class="left-div">
+            <img src=<%=`http://image.tmdb.org/t/p/w400${detailData.poster_path}` %>>  
+        </div>
+        <div class="right-div" style=<%=`background: url('http://image.tmdb.org/t/p/w200${detailData.backdrop_path}')`%>>
+            <img class="backdrop" src=<%=`http://image.tmdb.org/t/p/w400${detailData.backdrop_path}` %>>  
+    <h1><%=detailData.original_title %> <span class="vote"><%=detailData.vote_average %></span> </h1>
+    <h3>(<%=detailData.release_date %>)  </h3>
 
-    <h1><%=detailData.original_title %>  </h1>
-
+<p> <%=detailData.overview %></p>
     <% detailData.genres.forEach(element => { %>
-        <button><%=element.name %>  </button>
+        <a href=""><%=element.name %></a>  
     <% }) %>
     
+        </div>
+    </section>
+    
+
    
     
 

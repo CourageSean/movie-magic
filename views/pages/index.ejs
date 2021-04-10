@@ -8,40 +8,35 @@
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
     
-
+   
 </head>
 
 <body>
 
-    <nav>
-<h1>Logo</h1>
+ <%- include("../partials/navBar.ejs")  %> 
+ 
+<main>
 
-<ul class="search-nav">
-    <li class="nav-item">All Genres</li>
-    <li  class="nav-item" id="watchlist">Watchlist</li>
-    <li>
-        <input type="text" id="kutu">
-    </li>
-</ul>
-
-    </nav>
+   
+       
 
 
+</main>
 
 
     
 <div class="genre-div">
     <ul class="small-genre">
-<li class="genre-btn"> <a href="/movies/action/1">Action</a> </li>
+<li class="genre-btn" > <a href="/movies/action/1"  >Action</a> </li>
 <li class="genre-btn"><a  href="/movies/horror/1">Horror</a></li>
-<li class="genre-btn"><a  href="/movies/drama/1">Drama</a></li>
-<li class="genre-btn"><a  href="">Sci-fi</a></li>
+<li class="genre-btn"><a  href="/movies/drama/1" >Drama</a></li>
+<li class="genre-btn"><a  href="" style="padding:7px 15px;background-color: crimson; border-radius: 40px;">Sci-fi</a></li>
 
     </ul>
 
 </div>
 
-  <section>
+  <section class="index-wrapper" >
 
     
    <% data.results.forEach(element => { %>
@@ -50,8 +45,9 @@
     <div class ="movie-item" style=<%=`background: url('http://image.tmdb.org/t/p/w500${element.poster_path}');`%>>
    
     <a href=<%= `/${element.id}`%> >
-    <div class="img-wrapper">
- <img src=<%=`http://image.tmdb.org/t/p/w500${element.poster_path}` %>>  
+    <div class="img-wrapper" style="position: relative">
+        <h3 class="title-grid" style="position:absolute"><%=element.title  %> <br> (<%=element.release_date  %> )  </h3>
+ <img class="img-self" src=<%=`http://image.tmdb.org/t/p/w500${element.poster_path}` %>>  
  </div>
 </a>
  
@@ -72,18 +68,18 @@
 <% let myMovie = parseInt(page_nr,10)%>
 <% let col ="" %> 
 <% let pad ="" %> 
-    <div id=“buttons1” style="width:50%;margin:auto;background-color: ;padding:20px 0px;position:fixed;bottom: 0;left:35%">
-        <a class="prev-next" href=<%=`/movies/page/${myMovie-1}`%>>prev </a>
+    <div id=“buttons1” style="width:70%;margin:auto;padding:40px 0px;position:fixed;bottom: 0;left:35%">
+        <a class="prev-next" href=<%=`/movies/page/${myMovie-1}`%>>&lt </a>
         <% if(myMovie>=5) {%>
             <% for( let i = myMovie-4; i < myMovie+5; i++ ) { %>
                 <% if (myMovie === i) { %>
-                 <% col="red" %> 
-                 <% pad ="40px" %> 
+                 <% col="#eb1549" %> 
+                 <% pad ="35px" %> 
                 <% }else{ %>
-                          <% col ="black" %> 
+                          <% col ="white" %> 
                           <% pad ="15px" %> 
                     <% } %> 
-                    <button class="pagination-btn"><a style=<%=`color:${col};padding:${pad}`%> href=<%= `/movies/page/${i}`%> ><%= `${i}` %></a></button>
+                    <button class="pagination-btn"><a style=<%=` color:${col};padding:${pad}`%> href=<%= `/movies/page/${i}`%> ><%= `${i}` %></a></button>
                
            
             <% } %>
@@ -92,16 +88,16 @@
             <% for( let i = 1; i < 10; i++ ) { %>
 
                 <% if (myMovie === i) { %>
-                    <% col="red" %> 
-                    <% pad ="40px" %> 
+                    <% col="#eb1549" %> 
+                    <% pad ="35px" %> 
                    <% }else{ %>
-                             <% col ="black" %> 
+                             <% col ="white" %> 
                              <% pad ="15px" %> 
                        <% } %> 
-            <button><a  style=<%=`color:${col};padding:${pad}`%>  href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
+            <button class="pagination-btn"><a  style=<%=` color:${col};padding:${pad}`%>  href=<%= `/movies/page/${i}` %>><%= `${i}` %></a></button>
             <% } %>
             <% } %>
-            <a class="prev-next" href=<%=`/movies/page/${myMovie+1}`%>>next </a>
+            <a class="prev-next" href=<%=`/movies/page/${myMovie+1}`%>>&gt  </a>
       </div>
 
       
@@ -110,7 +106,28 @@
 
 
 
-<script src="../../functions.js">
+<script >
+ const imgWrapper = document.querySelectorAll(".img-wrapper")
+const gridTitle = document.querySelectorAll(".title-grid")
+console.log(imgWrapper)
+ imgWrapper.forEach((elt)=>{
+     elt.addEventListener("mouseover",()=>{
+ 
+    elt.children[0].style.display="block"
+   
+
+ })
+ })
+ 
+ imgWrapper.forEach((elt)=>{
+     elt.addEventListener("mouseout",()=>{
+    
+    elt.children[0].style.display="none"
+    
+   
+    
+ })
+ })
 
 </script>
 

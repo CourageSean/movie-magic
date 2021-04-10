@@ -4,14 +4,37 @@
     padding: 0;
     margin: 0;
 }
-body{
-   
-}
+
 nav{
     display: flex;
-    background: #010511;
+    background: transparent;
+   
     padding-top: 50px;
     justify-content: space-between;
+    position: absolute;
+    width: 100%;
+}
+
+.logo{
+    font-family: "Roboto";
+    color: #fff;
+    padding-left: 8%;
+    font-size: 1.8rem;
+    position: fixed;
+    z-index: 3;
+    
+}
+.base{
+    color: crimson;
+}
+.movie{
+    color: #fff;
+}
+
+.sean{
+    font-size: 1rem;
+    
+    position: absolute;
 }
 .search-nav{
     display: flex;
@@ -20,17 +43,40 @@ nav{
     position: relative;
     font-family: "Roboto";
     padding:0 8%;
+    left: 65%;
     
     }
 
+    input { 
+        text-align: center; 
+    }
     .nav-item{
         padding:0 13px;
         font-weight: 500;
     }
-
+    .title-grid{
+    font-family: "Roboto";   
+   display: none;
+   color: #fff;
+   z-index: 1;
+   
+    }
 .img-wrapper{
     width: 100%;
+    display: grid;
+    place-items: center;
+    
 }
+
+
+
+.img-self{
+    transition: 0.2s;
+}
+
+.img-self:hover{
+    filter: brightness(40%);
+ }
 
 img{
     width: 100%;
@@ -40,8 +86,11 @@ img{
     width: auto;
 }
 
+
 .genre-div{
-    background: #010511
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 5%, rgba(1,5,17,1) 100%);
+    padding-top: 40px;
 }
 .small-genre{
 display: flex;
@@ -72,16 +121,26 @@ a{
     /* color: #fff; */
 }
 
-ul{
-    
+
+main{
+/* background: url("./background.png"); */
+
+height: 500px;
+
+background: rgb(1,1,1);
+background: linear-gradient(0deg, rgba(1,1,1,0.700717787114846) 27%, rgba(0,0,0,0.3897934173669467) 53%, rgba(18,16,10,1) 95%),url("https://i1.wp.com/wallur.com/wp-content/uploads/2016/12/marvel-cinematic-background-15.jpg?resize=1600%2C900");
+
+
 }
-section{
+.index-wrapper{
     display: grid;
+   
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr  ;
+    /* grid-template-rows:300px 300px 300px 300px 300px; */
     gap:15px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr  ;
     background:#010511 ;
     padding: 0 120px;
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 article{
@@ -91,12 +150,10 @@ article{
 }
 
 .prev-next{
-padding:10px;
-border: solid 2px;
+transform: translateY(15px);
+font-size: 1.4rem;
 color: #fff;
 }
-.pagination-btn{
-  
 
 /* ============ */
 #kutu{
@@ -108,39 +165,120 @@ color: #fff;
     background-repeat:no-repeat;
     outline: none;
     font-size:19px;
-    padding:5px;
+    padding:7px;
     padding-left:20px;
     padding-right:20px;
    border: none;
    position: fixed;
    background-color: transparent;
-   top: 12%;
-   right: 10%;
+   top: 6%;
+   right: 32%;
 
     cursor:pointer;
-    border-radius:50px;
+    border-radius:20px;
     margin-left:50%;
     
     transition-property:width, padding, box-shadow, cursor, margin, background-color;
     transition-duration:0.4s;
+    z-index: 3;
   }
   #kutu:focus{
     padding-left:0px;
     padding-right:10px;
-    width:180px;
+    width:250px;
     cursor:text;
-    outline: none;
+    border: 2px solid black;
     margin-left:-55%;
-    background-color: #fff ;
+    background-color: rgb(255, 255, 255) ;
   }
 
   #buttons1{
-      width: 500px;
+      width: 100%;
       color: black;
       margin: auto;
       padding-left: 100px;
   }
 
-  /*===================*/
 
+  .pagination-btn{
+      background-color: #010511 ;
+      border-radius: 50%;
+      padding: 7px;
+      border: none;
+      opacity: 0.9;
   
+  }
+
+  .pagination-btn a{
+    color: #fff;
+  }
+  /*=================== Detail Movie==============*/
+  .detail-body{
+    background: rgb(235,21,73);
+background: linear-gradient(294deg, rgba(235,21,73,0.9948354341736695) 38%, rgba(1,5,17,1) 88%);
+      height: 100vh;
+  }
+
+  .detail-wrapper{
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+ 
+.right-div{
+   width: 400px; 
+   color: #fff;
+   font-family: "Roboto";
+   background:#010511;
+   padding:30px;
+   height: 400px;
+   position: relative;
+   padding-bottom: 130px;
+   transform: translateY(50px);
+}
+
+.backdrop{
+    position:absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    opacity: 0.1;
+    
+}
+.right-div h1{
+    font-size: 2rem;
+
+}
+.right-div h3{
+    color: rgba(255, 255, 255, 0.849);
+    padding-top: 10px;
+}
+
+.vote{
+    position: absolute;
+    right: 0;
+    top:6%;
+    right: 5%;
+    color: #fad405;
+}
+.right-div p{
+    line-height: 30px;
+    padding: 40px 0;
+    color: rgba(255, 255, 255, 0.849);
+    font-size: 20px;
+    font-weight: 300;
+}
+  
+.right-div a{
+    display: inline-block;
+    color: #fff;
+    padding: 5px 10px;
+    background:#eb1549;
+    border-radius: 15px;
+     margin:5px; 
+    margin-bottom: 10px;
+    font-size: small;
+}
