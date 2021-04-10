@@ -2,24 +2,21 @@
   "name": "movie-magic",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
-  "dependencies": {
-    "@glidejs/glide": "^3.4.1",
-    "@splidejs/splide": "^2.4.21",
-    "body-parser": "^1.19.0",
-    "brew": "0.0.8",
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1"
-  },
+  "main": "functions.js",
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "dev": "nodemon script.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node script.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CourageSean/movie-magic.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CourageSean/movie-magic/issues"
+  },
+  "homepage": "https://github.com/CourageSean/movie-magic#readme"
 }
