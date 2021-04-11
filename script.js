@@ -20,7 +20,7 @@ let genreType = ``
 let page_id ="2"
 
 const getData = async (genreType,page_id)=>{
-const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreType}&api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page_id}year=1`)
+const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreType}&api_key=${process.env.API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page_id}`)
 
 const data = await response.json()
 
@@ -37,7 +37,7 @@ return detailData
 
 const getSearch = async (search)=>{
 
-const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`)
+const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=efbbb302664f73b592e1d04eca61e7ec&language=en-US&query=${search}&page=1&include_adult=false`)
 const data = await response.json()
 return data
 }
@@ -56,7 +56,9 @@ getData("")
      
           getDetail(req.params.id)
           .then((detailData)=>{
-            res.render("pages/movieDetail",{detailData})
+            const genre_data = detailData.genres
+            res.render("pages/movieDetail",{detailData,genre_data})
+            console.log(detailData)
             
           })
          
@@ -113,10 +115,10 @@ getData("",page_nr)
 })
   })
 
-  app.get("/movies/search/:word",(req,res)=>{
+  app.get("/search/:word",(req,res)=>{
     getSearch(req.params.word)
     .then((data)=>{
-      console.log("here-2")
+    console.log(req.params)
       let page_nr =1
       
       res.render("pages/index",{data,page_nr})
@@ -126,7 +128,7 @@ getData("",page_nr)
   })
   app.post("/search",(req,res)=>{
     // console.log(req.body.search)
-    console.log("just here")
-  res.redirect(`movies/search/${req.body.search}`)
+    // console.log(req.body.search)
+  res.redirect(`/search/${req.body.search}`)
   
   })
